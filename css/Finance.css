@@ -125,7 +125,7 @@ p{
     background-color: rgb(252, 252, 252);
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.082);
     border: 1px solid rgba(0, 0, 0, 0.103); 
-    padding:0px 30px 0px 30px;
+    padding: 30px;
     margin: 10px;
     border-radius: 12px;
     grid-column: span 2;
@@ -167,6 +167,8 @@ select{
     border: 1px solid #ccc;
     border-radius: 5px;
     height: 25px;
+    display: block;
+    
 }
 .pay{
     font-family: Arial, Helvetica, sans-serif;
