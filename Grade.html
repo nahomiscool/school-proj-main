@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/Finance.css">
+    <style>
+        nav{
+            width: 100%;
+            height: 85px;
+            position:fixed;
+            margin: 0;
+            
+            z-index: 2000;
+            align-items:center;
+        }
+        .innerNav{
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            background-color: rgba(245, 244, 252, 0.986);
+            display: grid;
+            grid-template-columns: 1fr 5fr 1fr;
+            border-bottom: 1px solid black;
+        }
+        .logo{
+            width: 60px;
+            height: 60px;
+            margin: 0;
+        }
+        .logo:hover{
+            transition: 0.3s ease;
+            transform: scale(1.1,1.1);
+        }
+        .logo-nav-name{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .profile{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            p{
+                margin: 0px;
+            }
+            img{
+                width:40px;
+                height: 40px;
+                margin-left: 5px;
+            }
+        }
+        .dropdown{
+            background-color: rgb(252, 244, 244);
+            border: 1px solid wheat;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            bottom: -160px;
+            left: 10px;
+            z-index: 1000;
+
+            display: none;
+        }
+        .profile-img:hover + .dropdown{
+            display: block;
+        }
+
+        .profile-img{
+            cursor: pointer;
+        }
+
+
+        .nav-section{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0px;
+            
+
+        }
+
+        .nav-section ul{
+            
+            padding: 10PX 25px 10px 25px;
+            border-radius: 20px;
+            box-shadow: 0.1px 0.1px 10px rgba(0, 0, 0, 0.103);
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: rgba(232, 252, 255, 0.178);
+            width:60%;
+            
+            
+            
+        }
+        button{
+                border: none;
+                padding: 10px 15px 10px 15px;
+                border-radius: 10px;
+                font-weight: bold;
+                color: gray;
+                background-color:rgba(232, 252, 255, 0.178);
+                
+        }
+        button:hover{
+                color: black;
+                cursor: pointer;
+                background-color: rgba(230, 230, 230, 0.589);
+                
+        }
+        button:checked{
+            color: black;
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+        }
+
+        /*End of navbar*/
+    </style>
+</head>
+<body>
+     <nav>
+        <div class="innerNav">
+            <div class="logo-nav-name">
+                <img class="logo" src="./IMG/photo_2025-09-28_09-52-49-removebg-preview.png">
+                <h1>UNITY</h1>
+            </div>
+            <div class="nav-section">
+                <ul>
+                    <a href="./Home.html" ><button>Home</button></a>
+                    <a href="./Regstration.html" ><button>Registration</button></a> 
+                    <a href="./Teachers.html"><button>Teachers</button></a>
+                    <a href="./Finance.html" ><button>Finance</button></a>
+                    <a href="./Grade.html"><button>Grade</button></a> 
+                </ul>
+            </div>
+            <div class="profile" >
+                <div>
+                    <p style=" font-size:15px ; font-weight: bold;text-align: right;">Nahom Zewdu</p>
+                    <p style="font-size: 12px; text-align: right; color: blue; font-weight: bold;" >ID:06464/16</p>
+                </div>
+                
+                <img src="./IMG/man.png">
+            </div>
+        </div>
+    </nav>
+    <section class="Grade-main-section">
+        <div class="studInfo" >
+            <h3>GPA Summary</h3>
+            <ul>
+                <li>
+                    <p>CGPA:</p>
+                    <span>3.22</span>
+                </li>
+                <li>
+                    <p>Semister GPA:</p>
+                    <span>3.3</span>
+                </li>
+                <li>
+                    <p>Creadit Earned:</p>
+                    <span>18</span>
+                </li>
+                <li>
+                    <p>Year:</p>
+                    <span>3</span>
+                </li>
+                <li>
+                    <p>Semister:</p>
+                    <span>2nd</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overView1">
+            <select id="course-select">
+            <option  value="0">Select Course</option> 
+            <option   value="2">Database Structure</option>
+            <option  value="3">Conputer Graphics</option>
+            <option value="4">Computer Networking</option>
+            <option value="5">History of Ethiopia</option>
+            </select>
+            <h4>Course Title:<span>Database Managment</span> </h4>
+            <h4>Course Code:<span>COSC1012</span> </h4>
+            <h4>Instructor:<span>Dr. John Doe</span> </h4>
+            <table  id="table-cont-js" style = "width: 100%">
+                <tr>                                                                                                                                          
+                    <th>Assessment Name</th>
+                    <th>Assessment Type</th>
+                    <th>Maximum Mark</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td bgcolor="#e0e0e0" >Mid Exam</td>
+                    <td bgcolor="#e0e0e0">Continuous</td>
+                    <td bgcolor="#e0e0e0">20</td>
+                    <td bgcolor="#e0e0e0">-</td>
+                </tr>
+                <tr>
+                    <td>Assessment</td>
+                    <td>Continuous</td>
+                    <td>10</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#e0e0e0">Labratory Assignment</td>
+                    <td bgcolor="#e0e0e0">Continuous</td>
+                    <td bgcolor="#e0e0e0">10</td>
+                    <td bgcolor="#e0e0e0">-</td>
+                </tr>
+                <tr>
+                    <td>Project Assignment</td>
+                    <td>Continuous</td>
+                    <td>10</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#e0e0e0">Final Exam</td>
+                    <td bgcolor="#e0e0e0">Final</td>
+                    <td bgcolor="#e0e0e0">50</td>
+                    <td bgcolor="#e0e0e0">-</td>
+                </tr>
+                <tr class="total-row" >
+                    <th colspan="2"  style="text-align: right;" >Total</th>
+                    <th style="text-align: left;" >100</th>
+                    <th style="text-align: left;" >-/100</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+    
+
+
+    
+
+
+    <script type="module" src="JS/Home_page.js" ></script>
+    <script type="module" src="/JS/Grade.js"></script>
+    <script type="module" src="/JS/data.js" ></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* Example Grid for Teacher Cards */
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 85px;
+
+}
+
+.teacher-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    background: #fcf7f4;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    h3{
+        margin: 0px;
+    }
+    p{
+        margin: 0px;
+    }
+    .stars{
+            font-size: 12px;
+    }
+}
+
+.teacher-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    .teacher-photo{
+        transition: 0.3s ease;
+        box-shadow: 1px 1px 10px cyan;
+        
+
+    }
+}
+
+.teacher-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgb(255, 255, 255);
+    
+}
+#popUp-js{
+    border: 1px solid #b4b4b4;
+    border-radius: 10px;
+    text-align: center;
+    padding-top:20px;
+    width: 400px;
+    min-height:300px;
+    background: #ffd3b94f;
+    position: fixed;
+    top: 17%;
+    left:35%;
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    img{
+        border-radius: 50%;
+        box-shadow: 0.5px 0.5px 10px cyan;
+        
+    };
+    p{
+        font-size: large;
+        background-color: rgba(255, 255, 255, 0.397);
+        margin: 5px 0;
+        
+    };
+    h1{
+        font-size: larger;
+        z-index: 3000;
+        position:absolute;
+        text-align: center;
+        color: black;
+        top:0px;
+        right:15px;
+        background-color: rgba(255, 255, 255, 0.397);
+        width: 25px;
+        border-radius: 50%;
+    };
+    h1:hover{
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        background-color: black;
+    }
+}

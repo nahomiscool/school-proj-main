@@ -1,0 +1,101 @@
+body{
+    background-image: url('/IMG/pexels-tomfisk-3195186.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-content: center;
+}
+.login-container{
+    width: 100%;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    
+}
+h1{
+    text-align: center;  
+    width: 90%;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 10%;
+}
+.logo{
+    align-items: center;
+    margin: 0 auto;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 5px;
+    top: 7px;
+}
+.login-form{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #e7e7e7c5;  
+    align-content: center;
+    justify-items: center;
+    margin-top:25px;
+    box-shadow: 0 6px 6px 0 #001e3db2, 0 3px 20px 0 #001e3db2;
+
+}
+
+.p1{
+    color: #ff0000;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.p2{
+    color: #001F3D;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.login-form #username-js, .login-form #password-js{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    color: #001F3D;
+    border-radius: 5px;
+    
+}
+
+label{
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+
+}
+.form-group{
+    margin-bottom: 1px;
+    
+    img{
+        width: 30px;
+        height: 30px;
+    }
+}
+button{
+    font-weight: bold;
+    width: 24%;
+    margin-top: 10px;
+    position: absolute;
+    left: 61%;
+    padding: 10px;
+    background-color: #001F3D;
+    color: white;
+    border: none;
+    border-radius: 30px 5px 30px 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+button:hover{
+    border-radius: 5px 30px 5px 30px;
+    color: red;
+}

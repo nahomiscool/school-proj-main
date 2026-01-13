@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="./css/Finance.css">
+    <style>
+        nav{
+            width: 100%;
+            height: 85px;
+            position:fixed;
+            margin: 0;
+            
+            z-index: 2000;
+            align-items:center;
+        }
+        .innerNav{
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            background-color: rgba(245, 244, 252, 0.986);
+            display: grid;
+            grid-template-columns: 1fr 5fr 1fr;
+            border-bottom: 1px solid black;
+        }
+        .logo{
+            width: 60px;
+            height: 60px;
+            margin: 0;
+        }
+        .logo:hover{
+            transition: 0.3s ease;
+            transform: scale(1.1,1.1);
+        }
+        .logo-nav-name{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .profile{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            p{
+                margin: 0px;
+            }
+            img{
+                width:40px;
+                height: 40px;
+                margin-left: 5px;
+            }
+        }
+        .dropdown{
+            background-color: rgb(252, 244, 244);
+            border: 1px solid wheat;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            bottom: -160px;
+            left: 10px;
+            z-index: 1000;
+
+            display: none;
+        }
+        .profile-img:hover + .dropdown{
+            display: block;
+        }
+
+        .profile-img{
+            cursor: pointer;
+        }
+
+
+        .nav-section{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0px;
+            
+
+        }
+
+        .nav-section ul{
+            
+            padding: 10PX 25px 10px 25px;
+            border-radius: 20px;
+            box-shadow: 0.1px 0.1px 10px rgba(0, 0, 0, 0.103);
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: rgba(232, 252, 255, 0.178);
+            width:60%;
+            
+            
+            
+        }
+        button{
+                border: none;
+                padding: 10px 15px 10px 15px;
+                border-radius: 10px;
+                font-weight: bold;
+                color: gray;
+                background-color:rgba(232, 252, 255, 0.178);
+                
+        }
+        button:hover{
+                
+                cursor: pointer;
+                background-color: rgba(230, 230, 230, 0.589);
+                
+        }
+        button:checked{
+            color: black;
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+        }
+
+        /*End of navbar*/
+    </style>
+</head>
+<body>
+     <nav>
+        <div class="innerNav">
+            <div class="logo-nav-name">
+                <img class="logo" src="./IMG/photo_2025-09-28_09-52-49-removebg-preview.png">
+                <h1>UNITY</h1>
+            </div>
+            <div class="nav-section">
+                <ul>
+                    <a href="./Home.html" ><button>Home</button></a>
+                    <a href="./Regstration.html" ><button>Registration</button></a> 
+                    <a href="./Teachers.html"><button>Teachers</button></a>
+                    <a href="./Finance.html" ><button>Finance</button></a>
+                    <a href="./Grade.html"><button>Grade</button></a> 
+                </ul>
+            </div>
+            <div class="profile" >
+                <div>
+                    <p style=" font-size:15px ; font-weight: bold;text-align: right;">Nahom Zewdu</p>
+                    <p style="font-size: 12px; text-align: right; color: blue; font-weight: bold;" >ID:06464/16</p>
+                </div>
+                
+                <img src="./IMG/man.png">
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="studInfo">
+            <h3>Student Information</h3>
+            <ul>
+                <li>
+                    <p>Full Name: </p>
+                    <span>Nahom Zewdu</span>
+                </li>
+                <li>
+                    <p>ID: </p>
+                    <span>06464/16</span>
+                </li>
+                <li>
+                    <p>Department: </p>
+                    <span>COSC</span>
+                </li>
+                <li>
+                    <p>Total Balance Due: </p>
+                    <span>$3000</span>
+                </li>
+                <li>
+                    <p>Next pay: </p>
+                    <span>2-12-2025</span>
+                </li>
+            </ul>
+        </div>
+            
+        <div class="overView">
+            <h3>Registered Courses Overview</h3>
+            <table style = "width: 100%">
+                <tr>
+                    <th >Course Title</th>
+                    <th>Course No</th>
+                    <th>Cr</th>
+                    <th>Lab hr</th>
+                </tr>
+                <tr>
+                    <td bgcolor="#e0e0e0" >Data structure</td>
+                    <td bgcolor="#e0e0e0" >COSC3061</td>
+                    <td bgcolor="#e0e0e0" >4</td>
+                    <td bgcolor="#e0e0e0" >2</td>
+                </tr>
+                <tr>
+                    <td>Database Managment</td>
+                    <td>COSC3071</td>
+                    <td>3</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#e0e0e0" >Computer Graphics</td>
+                    <td bgcolor="#e0e0e0" >COSC3062</td>
+                    <td bgcolor="#e0e0e0" >3</td>
+                    <td bgcolor="#e0e0e0" >2</td>
+                </tr>
+                <tr>
+                    <td>Internet Programing I</td>
+                    <td>COSC3081</td>
+                    <td>3</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#e0e0e0" >Computer Networking</td>
+                    <td bgcolor="#e0e0e0" >COSC3031</td>
+                    <td bgcolor="#e0e0e0" >3</td>
+                    <td bgcolor="#e0e0e0" >2</td>
+                </tr>
+                <tr>
+                    <td>History of Ethiopia</td>
+                    <td>COSC1012</td>
+                    <td>3</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th colspan="1" style="text-align: right;border-top: 4px solid #0022b8" >Total:</th>
+                    <th colspan="1" style="border-top: 4px solid #0022b8;" ></th>
+                    <th colspan="1" style="text-align: left;border-top: 4px solid #0022b8;color: rgb(146, 7, 3);" >19</th>
+                    <th colspan="1" style="text-align: left;border-top: 4px solid #0022b8; color: rgb(146, 7, 3);">10</th>
+                </tr>
+            </table>
+        </div>
+        <div class="finance-breakdown">
+            <h3>Fee Breakdown</h3>
+            <ul>
+                <li>
+                    <span>Tuition (19 Cr × $350)</span>
+                    <strong>$6,650</strong>
+                </li>
+                <li>
+                    <span>Lab Fees (10 Hrs × $100)</span>
+                    <strong>$1,000</strong>
+                </li>
+                <li>
+                    <span>Registration Fee</span>
+                    <strong>$500</strong>
+                </li>
+                <li class="total-row">
+                    <span>Total Balance</span>
+                    <strong>$8,150</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="pay">
+            <p class="meta-data" >TOTAL BALANCE DUE</p>
+            <h1>$3,000</h1>
+            <ul>
+                <li>
+                    <P>Next Payment Due</P>
+                    <span>2025-02-12</span>
+                </li>
+                <li>
+                    <p>payment status</p>
+                    <span class="sp2">PENDING</span>
+                </li>
+                
+            </ul>
+            
+            <button>Make payment Now</button>
+        </div>
+    </section>
+    
+
+
+    <script type="module" src="JS/Finance.js"></script>
+    <script type="module" src="JS/data.js" ></script>
+</body>
+</html>

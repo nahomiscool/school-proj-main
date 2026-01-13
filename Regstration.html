@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/Styles.css">
+    
+    <style>
+                    /* Registration Form Styles */   
+            .Regstration-form {
+                
+                width: 850px;
+                margin: 40px auto;
+                padding: 25px 30px;
+                margin-top: 85px;
+                background-color: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            /* ===== Title & subtitle ===== */
+            .Regstration-form h2 {
+                text-align: center;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            .Regstration-form p {
+                text-align: center;
+                color: #666;
+                margin-bottom: 25px;
+            }
+
+            /* ===== Labels ===== */
+            .Regstration-form label {
+                display: block;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                font-weight: 600;
+                color: #444;
+            }
+
+            /* ===== Inputs & selects ===== */
+            .Regstration-form input,
+            .Regstration-form select {
+                width: 100%;
+                padding: 10px 12px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+                font-size: 15px;
+                outline: none;
+            }
+
+            .Regstration-form input:focus,
+            .Regstration-form select:focus {
+                border-color: #4a90e2;
+                box-shadow: 0 0 4px rgba(74, 144, 226, 0.4);
+            }
+
+            /* ===== Dropdown spacing ===== */
+            .Regstration-form select {
+                margin-top: 10px;
+            }
+
+            /* ===== Course list box ===== */
+            .course-list {
+                margin-top: 30px;
+                padding: 15px;
+                border-radius: 8px;
+                background-color: #f9fafc;
+                border: 1px solid #ddd;
+                max-height: 220px;
+                overflow-y: auto;
+            }
+
+            .course-list h2 {
+                font-size: 16px;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .course-list p {
+                padding: 6px 8px;
+                margin: 4px 0;
+                background-color: #ffb30e;
+                border-radius: 4px;
+                border: 1px solid #e0e0e0;
+                font-size: 14px;
+                color: #001F3D;
+            }
+
+            /* ===== Register button ===== */
+            #register-button {
+                width: 100%;
+                margin-top: 25px;
+                padding: 12px;
+                font-size: 16px;
+                font-weight: bold;
+                background-color: #4a90e2;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.3s, transform 0.2s;
+            }
+
+            #register-button:hover {
+                background-color: #357abd;
+                transform: translateY(-2px);
+            }
+
+            /* ===== Responsive ===== */
+            @media (max-width: 900px) {
+                .Regstration-form {
+                    width: 95%;
+                }
+            }
+    </style>
+</head>
+<body>
+     <nav>
+        <div class="innerNav">
+            <div class="logo-nav-name">
+                <img class="logo" src="./IMG/photo_2025-09-28_09-52-49-removebg-preview.png">
+                <h1>UNITY</h1>
+            </div>
+            <div class="nav-section">
+                <ul>
+                    <a href="./Home.html" ><button>Home</button></a>
+                    <a href="./Regstration.html" ><button>Registration</button></a> 
+                    <a href="./Teachers.html"><button>Teachers</button></a>
+                    <a href="./Finance.html" ><button>Finance</button></a>
+                    <a href="./Grade.html"><button>Grade</button></a> 
+                </ul>
+            </div>
+            <div class="profile" >
+                <div>
+                    <p style=" font-size:15px ; font-weight: bold;text-align: right;">Nahom Zewdu</p>
+                    <p style="font-size: 12px; text-align: right; color: blue; font-weight: bold;" >ID:06464/16</p>
+                </div>
+                
+                <img src="./IMG/man.png">
+                <div class="dropdown" >
+                    <a href="./login.html" ><button>Signout</button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <form class="Regstration-form" id="registration-form-js">
+        <h2>Registration Page</h2>
+        <label for="ID">ID:</label>
+        <input type="text" id="ID" name="ID" required>
+        <label for="name">Firstname:</label>
+        <input type="text" id="Fname" name="name" required>
+        <label for="name">Middlename:</label>
+        <input type="text" id="Mname" name="name" required>
+        <label for="name">Lastname:</label>
+        <input type="text" id="Lname" name="name" required>
+        <select name="status" id="program-status" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Regular">Regular</option>
+            <option value="Irregular" >Irregular</option>
+        </select>
+        <select name="class" id="class-level" required>
+            <option value="" selected disabled>Select</option>
+            <option value="1">Grade-1</option>
+            <option value="2">Grade-2</option>
+            <option value="3">Grade-3</option>
+            <option value="4">Grade-4</option>
+            <option value="5">Grade-5</option>
+            <option value="6">Grade-6</option>
+            <option value="7">Grade-7</option>
+            <option value="8">Grade-8</option>
+            <option value="9">Grade-9</option>
+            <option value="10">Grade-10</option>
+            <option value="11">Grade-11</option>
+            <option value="12">Grade-12</option>
+        </select>
+        <select name="semester" id="semester" required>">
+            <option value="" selected disabled>Select</option>
+            <option value="First-Semester">First Semester</option>
+            <option value="Second-Semester">Second Semester</option>
+        </select>
+        <div class="course-list" id="course-list-js">
+            <h2>List Of Courses</span></h2>
+        </div>
+
+        <button type="submit" id="register-button" >Register</button>
+    </form>
+
+
+    <script type="module" src="JS/Home_page.js" ></script>
+    <script type="module" src="JS/data.js"></script>
+</body>
+</html>
