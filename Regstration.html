@@ -7,117 +7,121 @@
     <link rel="stylesheet" href="./css/Styles.css">
     
     <style>
-                    /* Registration Form Styles */   
-            .Regstration-form {
                 
-                width: 850px;
-                margin: 40px auto;
-                padding: 25px 30px;
-                margin-top: 85px;
-                background-color: #ffffff;
-                border-radius: 12px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                position: relative;
-            }
+        /* ===== Base ===== */
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
 
-            /* ===== Title & subtitle ===== */
-            .Regstration-form h2 {
-                text-align: center;
-                margin-bottom: 5px;
-                color: #333;
-            }
+        body {
+            background-color: #f4f6f8;
+        }
 
-            .Regstration-form p {
-                text-align: center;
-                color: #666;
-                margin-bottom: 25px;
-            }
+        /* ===== Form Container ===== */
+        .Regstration-form {
+            max-width: 780px;
+            margin: 100px auto 40px;
+            padding: 32px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
 
-            /* ===== Labels ===== */
-            .Regstration-form label {
-                display: block;
-                margin-top: 15px;
-                margin-bottom: 5px;
-                font-weight: 600;
-                color: #444;
-            }
+        /* ===== Title ===== */
+        .Regstration-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #222;
+        }
 
-            /* ===== Inputs & selects ===== */
-            .Regstration-form input,
-            .Regstration-form select {
-                width: 100%;
-                padding: 10px 12px;
-                border-radius: 6px;
-                border: 1px solid #ccc;
-                font-size: 15px;
-                outline: none;
-            }
+        /* ===== Labels ===== */
+        .Regstration-form label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #444;
+        }
 
-            .Regstration-form input:focus,
-            .Regstration-form select:focus {
-                border-color: #4a90e2;
-                box-shadow: 0 0 4px rgba(74, 144, 226, 0.4);
-            }
+        /* ===== Inputs & Selects ===== */
+        .Regstration-form input,
+        .Regstration-form select {
+            width: 100%;
+            padding: 11px 12px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            background-color: #fff;
+        }
 
-            /* ===== Dropdown spacing ===== */
-            .Regstration-form select {
-                margin-top: 10px;
-            }
+        .Regstration-form input:focus,
+        .Regstration-form select:focus {
+            border-color: #2563eb;
+            outline: none;
+        }
 
-            /* ===== Course list box ===== */
-            .course-list {
-                margin-top: 30px;
-                padding: 15px;
-                border-radius: 8px;
-                background-color: #f9fafc;
-                border: 1px solid #ddd;
-                max-height: 220px;
-                overflow-y: auto;
-            }
+        /* ===== Name Grid ===== */
+        .name-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
 
-            .course-list h2 {
-                font-size: 16px;
-                margin-bottom: 10px;
-                color: #333;
-            }
+        /* ===== Course List ===== */
+        .course-list {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            background-color: #fafafa;
+            max-height: 200px;
+            overflow-y: auto;
+        }
 
-            .course-list p {
-                padding: 6px 8px;
-                margin: 4px 0;
-                background-color: #ffb30e;
-                border-radius: 4px;
-                border: 1px solid #e0e0e0;
-                font-size: 14px;
-                color: #001F3D;
-            }
+        .course-list h2 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: #333;
+        }
 
-            /* ===== Register button ===== */
-            #register-button {
-                width: 100%;
-                margin-top: 25px;
-                padding: 12px;
-                font-size: 16px;
-                font-weight: bold;
-                background-color: #4a90e2;
-                color: white;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: background 0.3s, transform 0.2s;
-            }
+        .course-list p {
+            margin: 6px 0;
+            padding: 6px 10px;
+            background: #eef2ff;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #1e3a8a;
+        }
 
-            #register-button:hover {
-                background-color: #357abd;
-                transform: translateY(-2px);
-            }
+        /* ===== Button ===== */
+        #register-button {
+            width: 100%;
+            margin-top: 30px;
+            padding: 13px;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-            /* ===== Responsive ===== */
-            @media (max-width: 900px) {
-                .Regstration-form {
-                    width: 95%;
-                }
+        #register-button:hover {
+            background-color: #1e40af;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .name-grid {
+                grid-template-columns: 1fr;
             }
-    </style>
+        }
+</style>
+
 </head>
 <body>
      <nav>

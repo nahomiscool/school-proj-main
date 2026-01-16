@@ -6,12 +6,8 @@ p.style.color = "red";
 p.style.position = "absolute";
 p.style.bottom = "20px"
 
-
 userKey = "admin";
 passKey = "admin";
-
-
-
 
 function validateUserInfo(){
     if(username.value === userKey && password.value === passKey){
