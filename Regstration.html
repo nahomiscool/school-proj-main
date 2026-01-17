@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="./css/Styles.css">
     
     <style>
-                
+        body{
+        height: 1000px;
+        display: flex;
+        flex-direction: column;
+    
+        }
         /* ===== Base ===== */
         * {
             box-sizing: border-box;
@@ -144,8 +149,7 @@
                     <p style=" font-size:15px ; font-weight: bold;text-align: right;">Nahom Zewdu</p>
                     <p style="font-size: 12px; text-align: right; color: blue; font-weight: bold;" >ID:06464/16</p>
                 </div>
-                
-                <img src="./IMG/man.png">
+                <img class="profile-img" src="./IMG/man.png">
                 <div class="dropdown" >
                     <a href="./login.html" ><button>Signout</button></a>
                 </div>
@@ -193,7 +197,51 @@
 
         <button type="submit" id="register-button" >Register</button>
     </form>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box school">
+                <h3>Bright Future School</h3>
+                <p>Knowledge is Power</p>
+                <p>Addis Ababa, Ethiopia</p>
+            </div>
 
+            <div class="footer-box">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Student Portal</a></li>
+                    <li><a href="#">Academic Calendar</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Exams</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box contact">
+                <h4>Contact Us</h4>
+                <p>📞 +251 9XX XXX XXX</p>
+                <p>✉️ info@brightfuture.edu.et</p>
+                <div class="socials">
+                    <a href="#">FB</a>
+                    <a href="#">TG</a>
+                    <a href="#">YT</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Bright Future School | All Rights Reserved
+            </div>
+
+        </div>
+    </footer>
 
     <script type="module" src="JS/Home_page.js" ></script>
     <script type="module" src="JS/data.js"></script>

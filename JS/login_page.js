@@ -21,5 +21,4 @@ function validateUserInfo(){
         p.style.left = "20px";
         form.appendChild(p);
     }
-    
 }

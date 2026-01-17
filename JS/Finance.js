@@ -1,6 +1,6 @@
 import { studentInfo } from "./data.js";
 import {Student} from "./Home_page.js";
-import { paymentInfo } from "./data.js";
+
 let name = document.getElementById('name-js');
 let id = document.getElementById('id-js');
 let grade = document.getElementById('grade-js');
