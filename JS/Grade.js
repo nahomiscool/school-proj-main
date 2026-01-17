@@ -1,30 +1,25 @@
 import { Course } from "./data.js";
-
 let table = document.getElementById('table-cont-js'); 
 let choise = document.getElementById('course-select');
 let metadata = document.querySelector('.table_metadata');
 let bar = document.querySelector('.grade_per');
 choise.addEventListener('change', function() {
-    // 1. Find the data for the selected course ID
     const selectedCourse = Course.find(c => c.id === choise.value);
 
-    // If "Select Course" (0) is picked, don't do anything or clear table
-    if (!selectedCourse) return;
+    if (!selectedCourse){
+        return;
+    } 
 
-    // 2. Calculate the total for THIS specific course
     let total = 0;
     selectedCourse.results.forEach(score => {
         total += score;
     });
 
-
-    
     metadata.innerHTML = `
                 <h4>Course Title</br><span>${selectedCourse.title}</span> </h4>
                 <h4>Course Code</br><span>${selectedCourse.courseCode}</span> </h4>
                 <h4>Grade</br><span>${selectedCourse.Grade}</span> </h4>
     `;
-    // 3. Update the HTML Table with the specific course results
     table.innerHTML = `
         <tr>
             <th>Assessment Name</th>

@@ -14,9 +14,8 @@ let semester = document.getElementById('semester');
 let courseList = document.getElementById('course-list-js');
 export let Student;
 let count = 0;
-
-
 diplayhidden.style.cursor = "pointer";
+
 diplayhidden.addEventListener('click', (e) => {
     
     if(count === 0){

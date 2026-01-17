@@ -1,7 +1,5 @@
 import { teachersInfo } from "./data.js";
 let teacherGrid = document.getElementById('teacher-grid-js');
-
-
 for(let i = 0; i <teachersInfo.length; i++){
     teacherGrid.innerHTML += `
     <div class="teacher-card" id="teacher-card-js" value = "${ teachersInfo[i].id }" >
