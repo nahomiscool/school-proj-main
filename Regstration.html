@@ -5,127 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="./css/Styles.css">
-    
-    <style>
-        body{
-        height: 1000px;
-        display: flex;
-        flex-direction: column;
-    
-        }
-        /* ===== Base ===== */
-        * {
-            box-sizing: border-box;
-            font-family: "Segoe UI", Tahoma, sans-serif;
-        }
-
-        body {
-            background-color: #f4f6f8;
-        }
-
-        /* ===== Form Container ===== */
-        .Regstration-form {
-            max-width: 780px;
-            margin: 100px auto 40px;
-            padding: 32px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        /* ===== Title ===== */
-        .Regstration-form h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            font-weight: 600;
-            color: #222;
-        }
-
-        /* ===== Labels ===== */
-        .Regstration-form label {
-            display: block;
-            margin-top: 18px;
-            margin-bottom: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #444;
-        }
-
-        /* ===== Inputs & Selects ===== */
-        .Regstration-form input,
-        .Regstration-form select {
-            width: 100%;
-            padding: 11px 12px;
-            border-radius: 6px;
-            border: 1px solid #d1d5db;
-            font-size: 14px;
-            background-color: #fff;
-        }
-
-        .Regstration-form input:focus,
-        .Regstration-form select:focus {
-            border-color: #2563eb;
-            outline: none;
-        }
-
-        /* ===== Name Grid ===== */
-        .name-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        /* ===== Course List ===== */
-        .course-list {
-            margin-top: 30px;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #e5e7eb;
-            background-color: #fafafa;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .course-list h2 {
-            font-size: 15px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .course-list p {
-            margin: 6px 0;
-            padding: 6px 10px;
-            background: #eef2ff;
-            border-radius: 4px;
-            font-size: 13px;
-            color: #1e3a8a;
-        }
-
-        /* ===== Button ===== */
-        #register-button {
-            width: 100%;
-            margin-top: 30px;
-            padding: 13px;
-            font-size: 15px;
-            font-weight: 600;
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        #register-button:hover {
-            background-color: #1e40af;
-        }
-
-        /* ===== Responsive ===== */
-        @media (max-width: 768px) {
-            .name-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-</style>
+    <link rel="stylesheet" href="./css/Regstration.css">
 
 </head>
 <body>
@@ -158,6 +38,10 @@
     </nav>
     <form class="Regstration-form" id="registration-form-js">
         <h2>Registration Page</h2>
+        <div>
+
+            
+        </div>
         <label for="ID">ID:</label>
         <input type="text" id="ID" name="ID" required>
         <label for="name">Firstname:</label>
@@ -169,34 +53,33 @@
         <select name="status" id="program-status" required>
             <option value="" selected disabled>Select</option>
             <option value="Regular">Regular</option>
-            <option value="Irregular" >Irregular</option>
+            <option value="Irregular">Irregular</option>
         </select>
         <select name="class" id="class-level" required>
             <option value="" selected disabled>Select</option>
-            <option value="1">Grade-1</option>
-            <option value="2">Grade-2</option>
-            <option value="3">Grade-3</option>
-            <option value="4">Grade-4</option>
-            <option value="5">Grade-5</option>
-            <option value="6">Grade-6</option>
-            <option value="7">Grade-7</option>
-            <option value="8">Grade-8</option>
-            <option value="9">Grade-9</option>
-            <option value="10">Grade-10</option>
-            <option value="11">Grade-11</option>
-            <option value="12">Grade-12</option>
+            <option value="1">Fresh man</option>
+            <option value="2">Sophomore</option>
+            <option value="3">Junior</option>
+            <option value="4">Senior</option>
         </select>
+
+
         <select name="semester" id="semester" required>">
             <option value="" selected disabled>Select</option>
             <option value="First-Semester">First Semester</option>
             <option value="Second-Semester">Second Semester</option>
         </select>
+
+
         <div class="course-list" id="course-list-js">
             <h2>List Of Courses</span></h2>
         </div>
-
         <button type="submit" id="register-button" >Register</button>
     </form>
+
+
+
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-box school">
