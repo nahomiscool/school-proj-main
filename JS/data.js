@@ -38,7 +38,7 @@ export const Course = [
         id: "6",
         title: "Internet Programming",
         courseCode: "COSC2023",
-        Grade: "B",
+        Grade: "F",
         results: [7, 8, 2, 6, 25]
     }
 ];
