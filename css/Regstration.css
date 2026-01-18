@@ -1,138 +1,246 @@
-       body{
-        height: 1000px;
-        display: flex;
-        flex-direction: column;
-    
-        }
-        /* ===== Base ===== */
-        * {
-            box-sizing: border-box;
-            font-family: "Segoe UI", Tahoma, sans-serif;
-        }
+body{
+height: 1000px;
+display: flex;
+flex-direction: column;
+font-family: "Segoe UI", Tahoma, sans-serif;
+}
+.Regstration-form {
 
-        body {
-            background-color: #f4f6f8;
-        }
+min-width: 500px;
+margin: 100px auto 40px;
+padding: 32px;
+background: #f7f7ff;
+border-radius: 10px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+/**/
+.Info {
+    background: linear-gradient(135deg, #f4f6f9, #e3e7ee);
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    animation: fadeIn 0.8s ease-in-out;
+}
 
-        /* ===== Form Container ===== */
-        .Regstration-form {
-            max-width: 780px;
-            min-width: 500px;
-            margin: 100px auto 40px;
-            padding: 32px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
 
-        /* ===== Title ===== */
-        .Regstration-form h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            font-weight: 600;
-            color: #000000;
-        }
+.Info img {
+    width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+}
 
-        /* ===== Labels ===== */
-        .Regstration-form label {
-            display: block;
-            margin-top: 18px;
-            margin-bottom: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #444;
-        }
 
-        /* ===== Inputs & Selects ===== */
-        .Regstration-form input,
-        .Regstration-form select {
-            width: 100%;
-            padding: 11px 12px;
-            border-radius: 6px;
-            border: 1px solid #d1d5db;
-            font-size: 14px;
-            background-color: #fff;
-        }
-        select{
-            margin-top: 10px;
-        }
-        
+.Info h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    color: #000000;
+    letter-spacing: -0.5px;
+}
 
-        .Regstration-form input:focus,
-        .Regstration-form select:focus {
-            border-color: #2563eb;
-            outline: none;
-        }
+.Info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        /* ===== Name Grid ===== */
-        .name-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
 
-        /* ===== Course List ===== */
-        .course-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            margin-top: 30px;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #e5e7eb;
-            background-color: #fafafa;
-            max-height: 200px;
-            overflow-y: auto;
-            
-        }
-        .course-list div{
-            margin: 5px;
-            
-        }
-        .course-list h2 {
-            margin: 0;
-            padding: 6px 10px;
-            background: #eef2ff;
-            border-radius: 4px;
-            font-size: 15px;
-            text-align: left;
-            color: #1e3a8a;
-            span{
-                float: right;
-                font-size: 13px;
-                color: #444;
-            }
-        }
+.Info .intro {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4b5563;
+}
 
-        .course-list p {
-            margin:0;
-            padding: 6px 10px 0px 6px;
-            background: #eef2ff;
-            border-radius: 4px;
-            font-size: 12px;
-            color: #1e3a8a;
-        }
 
-        /* ===== Button ===== */
-        #register-button {
-            width: 100%;
-            margin-top: 30px;
-            padding: 13px;
-            font-size: 15px;
-            font-weight: 600;
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+.Info .features,
+.Info .instructions {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 18px 22px;
+    border-radius: 14px;
+    border-left: 5px solid #2563eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        #register-button:hover {
-            background-color: #1e40af;
-        }
+.Info .instructions {
+    border-left-color: #059669;
+}
 
-        /* ===== Responsive ===== */
-        @media (max-width: 768px) {
-            .name-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+.Info .features:hover,
+.Info .instructions:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.Info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Info li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+
+
+.Info .security-note {
+    font-size: 0.85rem;
+    color: #6b7280;
+    background: rgba(37, 99, 235, 0.1);
+    padding: 10px 14px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/**/
+
+.regstration-page-contaner{
+padding: 30px;
+gap: 1px;
+display: grid;
+grid-template-columns:  repeat(auto-fit, minmax(320px, 1fr));
+margin-top: 85px;
+form{
+margin: auto;
+grid-area: span 1;
+}
+
+}
+
+.Regstration-form h2 {
+text-align: center;
+margin-bottom: 25px;
+font-weight: 600;
+color: black;
+}
+
+
+.Regstration-form label {
+display: block;
+margin-top: 18px;
+margin-bottom: 6px;
+font-size: 14px;
+font-weight: 500;
+color: #444;
+}
+
+
+.Regstration-form input,
+.Regstration-form select {
+width: 90%;
+padding: 11px 12px;
+border-radius: 6px;
+border: 1px solid #d1d5db;
+font-size: 14px;
+background-color: #fff;
+}
+select{
+margin-top: 10px;
+}
+
+
+.Regstration-form input:focus,
+.Regstration-form select:focus {
+border-color: #2563eb;
+outline: none;
+}
+
+
+.name-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 15px;
+}
+
+
+.course-list {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+margin-top: 30px;
+padding: 15px;
+border-radius: 6px;
+border: 1px solid #e5e7eb;
+background-color: #fafafa;
+max-height: 200px;
+overflow-y: auto;
+
+}
+.course-list div{
+margin: 5px;
+
+}
+.course-list h2 {
+margin: 0;
+padding: 6px 10px;
+background: #eef2ff;
+border-radius: 4px;
+font-size: 15px;
+text-align: left;
+color: #1e3a8a;
+span{
+float: right;
+font-size: 13px;
+color: #444;
+}
+}
+
+.course-list p {
+margin:0;
+padding: 6px 10px 0px 6px;
+background: #eef2ff;
+border-radius: 4px;
+font-size: 12px;
+color: #1e3a8a;
+}
+
+
+#register-button {
+width: 100%;
+margin-top: 30px;
+padding: 13px;
+font-size: 15px;
+font-weight: 600;
+background-color: #0f172a;
+color: white;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+}
+
+#register-button:hover {
+background-color: #0f256d;
+}
+
+@media (max-width: 768px) {
+.name-grid {
+grid-template-columns: 1fr;
+}
+}
