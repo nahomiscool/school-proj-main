@@ -50,11 +50,13 @@
         <input type="text" id="Mname" name="name" required>
         <label for="name">Lastname:</label>
         <input type="text" id="Lname" name="name" required>
+        <label for="status">Program:</label>
         <select name="status" id="program-status" required>
             <option value="" selected disabled>Select</option>
             <option value="Regular">Regular</option>
             <option value="Irregular">Irregular</option>
         </select>
+        <label for="class">Year:</label>
         <select name="class" id="class-level" required>
             <option value="" selected disabled>Select</option>
             <option value="1">Fresh man</option>
@@ -63,7 +65,7 @@
             <option value="4">Senior</option>
         </select>
 
-
+        <label for="semester">Semester:</label>
         <select name="semester" id="semester" required>">
             <option value="" selected disabled>Select</option>
             <option value="First-Semester">First Semester</option>
@@ -72,14 +74,34 @@
 
 
         <div class="course-list" id="course-list-js">
-            <h2>List Of Courses</span></h2>
+            <div>
+                <p>COSC1010</p>
+                <h2>Database Managment<span>3</span></h2>
+            </div>
+            <div>
+                <p>COSC1030</p>
+                <h2>Data Structure (DSA)<span>4</span></h2>
+            </div>
+            <div>
+                <p>COSC1020</p>
+                <h2>Internet Programing<span>3</span></h2>
+            </div>
+            <div>
+                <p>COSC1040</p>
+                <h2>Computer Networking<span>3</span></h2>
+            </div>
+            <div>
+                <p>COSC1050</p>
+                <h2>Graphics Design<span>3</span></h2>
+            </div>
         </div>
-        <button type="submit" id="register-button" >Register</button>
+
+        <a href="./Finance.html"><button type="button" id="register-button" >Register</button></a>
     </form>
 
 
 
-    
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-box school">

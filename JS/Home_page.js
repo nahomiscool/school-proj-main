@@ -14,16 +14,13 @@ let semester = document.getElementById('semester');
 let courseList = document.getElementById('course-list-js');
 export let Student;
 let count = 0;
-diplayhidden.style.cursor = "pointer";
 
+diplayhidden.style.cursor = "pointer";
 diplayhidden.addEventListener('click', (e) => {
-    
     if(count === 0){
         console.log('Dropdown opened');
         diva.style.display = 'block';
         count = 1;
-        
-
     }else if(count === 1){
         console.log('Dropdown closed');
         count = 0;

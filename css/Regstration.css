@@ -17,6 +17,7 @@
         /* ===== Form Container ===== */
         .Regstration-form {
             max-width: 780px;
+            min-width: 500px;
             margin: 100px auto 40px;
             padding: 32px;
             background: #ffffff;
@@ -72,6 +73,8 @@
 
         /* ===== Course List ===== */
         .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             margin-top: 30px;
             padding: 15px;
             border-radius: 6px;
@@ -79,20 +82,33 @@
             background-color: #fafafa;
             max-height: 200px;
             overflow-y: auto;
+            
         }
-
+        .course-list div{
+            margin: 5px;
+            
+        }
         .course-list h2 {
-            font-size: 15px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .course-list p {
-            margin: 6px 0;
+            margin: 0;
             padding: 6px 10px;
             background: #eef2ff;
             border-radius: 4px;
-            font-size: 13px;
+            font-size: 15px;
+            text-align: left;
+            color: #1e3a8a;
+            span{
+                float: right;
+                font-size: 13px;
+                color: #444;
+            }
+        }
+
+        .course-list p {
+            margin:0;
+            padding: 6px 10px 0px 6px;
+            background: #eef2ff;
+            border-radius: 4px;
+            font-size: 12px;
             color: #1e3a8a;
         }
 
