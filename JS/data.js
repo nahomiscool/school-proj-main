@@ -43,9 +43,6 @@ export const Course = [
     }
 ];
 
-export let studentInfo = [
-    {name:"Nahom Zewdu", CGPA:"3.5", GPA:"3.3", ID:"06463/16", Year:"3", department:"COSC"}
-];
 
 
 export const teachersInfo = [

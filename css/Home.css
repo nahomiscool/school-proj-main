@@ -4,7 +4,7 @@ body{
     flex-direction: column;
     
 }
-/*Main section*/
+/*main section*/
 main{
     
     width: 100%;
@@ -388,12 +388,6 @@ main{
     font-size: 11px;
     color: gray;
 }
-
-
-
-
-
-/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr 1fr;
