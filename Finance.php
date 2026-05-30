@@ -1,3 +1,20 @@
+<?php
+    require_once 'config.php';
+    $ID = $_SESSION['user_id'] ?? 'Not available';
+    $Name = $_SESSION['username'] ?? 'Guest';
+    $Email = $_SESSION['user_email'] ?? 'Not available';
+    $userFname = $_SESSION['user_fname'] ?? 'User';
+    $userLname = $_SESSION['user_lname'] ?? '';
+    $role = $_SESSION['user_role'] ?? 'Student';
+
+    // FIXED: Changed login.html to login.php
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: login.php');
+        exit;
+    }
+    $fullName = $userFname . ' ' . $userLname;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,22 +33,22 @@
             </div>
             <div class="nav-section">
                 <ul>
-                    <a href="./Home.html" ><button>Home</button></a>
-                    <a href="./Regstration.html" ><button>Registration</button></a> 
-                    <a href="./Teachers.html"><button>Teachers</button></a>
-                    <a href="./Finance.html" ><button>Finance</button></a>
-                    <a href="./Grade.html"><button>Grade</button></a> 
+                    <a href="./Home.php"><button>Home</button></a>
+                    <a href="./Regstration.php" ><button>Registration</button></a> 
+                    <a href="./Teachers.php"><button>Teachers</button></a>
+                    <a href="./Finance.php" ><button>Finance</button></a>
+                    <a href="./Grade.php"><button>Grade</button></a> 
                 </ul>
             </div>
             <div class="profile" >
                 <div>
-                    <p style=" font-size:15px ; font-weight: bold;text-align: right;">Nahom Zewdu</p>
-                    <p style="font-size: 12px; text-align: right; color: blue; font-weight: bold;" >ID:06464/16</p>
+                    <p style=" font-size:15px ; font-weight: bold;text-align: right;"> <?php echo htmlspecialchars($fullName); ?> </p> 
+                    <p style="font-size: 12px; text-align: right; color: blue; font-weight: bold;" >ID: <?php echo htmlspecialchars($ID); ?> </p>
                 </div>
                 <img class="profile-img" src="./IMG/man.png">
                 <div class="dropdown" >
                     <p></p>
-                    <a href="./login.html" ><button>Signout</button></a>
+                    <a href="./logout.php" ><button>Signout</button></a>
                 </div>
             </div>
         </div>

@@ -6,19 +6,26 @@ p.style.color = "red";
 p.style.position = "absolute";
 p.style.bottom = "20px"
 
-userKey = "admin";
-passKey = "admin";
 
 function validateUserInfo(){
-    if(username.value === userKey && password.value === passKey){
-        window.location.href = "Home.html";
-    }else if(username.value === "" || password.value === ""){
+    if(username.value === "" || password.value === ""){
         p.textContent = "Please enter username and password to login.";
+        
         p.style.left = "70px";
+        alert(p.textContent);
         form.appendChild(p);
     }else{
         p.textContent = "The username or password you entered is incorrect. Please try again.";
         p.style.left = "20px";
+        alert(p.textContent);
         form.appendChild(p);
     }
 }
+
+form.addEventListener('submit', function(event){
+    validateUserInfo();
+});
+
+
+
+

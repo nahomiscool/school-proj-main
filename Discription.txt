@@ -1,0 +1,6 @@
+Website Description
+
+This website is a school portal web application designed to provide students with easy access to essential academic information. The platform allows users to view grades, attendance records, assignments, and school announcements through a simple and user-friendly interface. The website is built using HTML, CSS, and JavaScript and is intended to be run using a local web server to ensure full functionality. The design focuses on clarity, accessibility, and a professional academic appearance.
+
+Used 
+HTML CSS JavaScript 

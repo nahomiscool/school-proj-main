@@ -1,0 +1,7 @@
+⚠️ JavaScript Execution Notice
+
+This project uses JavaScript files that will not run correctly when the HTML files are opened directly using the file:// protocol. Modern browsers block JavaScript loading in this case due to CORS (Cross-Origin Resource Sharing) security restrictions, where the page origin is treated as null.
+
+To ensure full functionality, the project must be run using a local web server, such as VS Code Live Server or localhost. Running the project through a server provides a valid http:// origin, allowing the browser to safely load and execute JavaScript files.
+
+Most page functionalities including Login, Teachers page, Grade Page Won't work.
