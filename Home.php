@@ -11,7 +11,12 @@
     $userFname = $_SESSION['user_fname'] ?? 'User';
     $userLname = $_SESSION['user_lname'] ?? '';
     $role = $_SESSION['user_role'] ?? 'Student';
+    //--------------------------
     $user_depr = $_SESSION['departmentName'] ?? 'Not available';
+    //---------------------------
+    $year = $_SESSION['year'];
+    $semester = $_SESSION['semester'];
+    
 
     // FIXED: Changed login.html to login.php
     if (!isset($_SESSION['user_id'])) {
@@ -79,11 +84,11 @@
                 <div class="Overview-panal2">
                     <div>
                         <p>🚀 Year</p>
-                        <h3>Year 3</h3>
+                        <h3>Year  <?php echo htmlspecialchars($year); ?></h3>
                     </div>
                     <div>
                         <p>📅 SEMESTER</p>
-                        <h3>2nd</h3>
+                        <h3><?php echo htmlspecialchars($semester); ?></h3>
                     </div>
                     <div>
                         <p>⭐ CGPA</p>

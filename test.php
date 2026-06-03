@@ -1,17 +1,32 @@
+<?php
+    require_once 'config.php';
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Result</title>
-</head>
-<body>
-    <?php if ($message !== ''): ?>
-        <p style="color:red;"><?php echo htmlspecialchars($message); ?></p>
-        <p><a href="login.html">Back to login</a></p>
-    <?php else: ?>
-        <p>Open <a href="login.html">login page</a> to submit the form.</p>
-    <?php endif; ?>
-</body>
-</html>
+        echo "<!-- Session data: ";
+        print_r($_SESSION);
+        echo " -->";
+    
+    $ID = $_SESSION['user_id'] ?? 'Not available';
+    $Name = $_SESSION['username'] ?? 'Guest';
+    $Email = $_SESSION['user_email'] ?? 'Not available';
+    $userFname = $_SESSION['user_fname'] ?? 'User';
+    $userLname = $_SESSION['user_lname'] ?? '';
+    $role = $_SESSION['user_role'] ?? 'Student';
+    //--------------------------
+    $user_depr = $_SESSION['departmentName'] ?? 'Not available';
+    //---------------------------
+    $year = $_SESSION['year'];
+    $coursename = $_SESSION['courseName'];
+    $ar =[$coursename];
+    $semester = $_SESSION['semester'];
+    for($i = 0; $i < count($ar); $i++){
+        echo $ar[$i],"<br>";
+    }
+
+    // FIXED: Changed login.html to login.php
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: login.php');
+        exit;
+    }
+    $fullName = $userFname . ' ' . $userLname;
+
+?>
