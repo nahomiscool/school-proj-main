@@ -62,13 +62,12 @@ function departmentInformation($conn, $user_dep){
 
 function studentGrade($conn, $stud_id){
     if (!$stud_id) return false;
-        $sql = "SELECT c.title, g.Score, g.courseID, g.gradeID 
+        $sql = "SELECT c.title, c.creditHours, g.Score, g.courseID, g.gradeID 
             FROM grade g, course c 
             WHERE g.courseID = c.CourseID 
             AND g.studID = '$stud_id'";
     $result = mysqli_query($conn, $sql);
     if ($result && mysqli_num_rows($result) >= 1) {
-        // Changed to handle multiple rows (multiple courses)
         $grades = [];
         while ($row = mysqli_fetch_assoc($result)) {
             $grades[] = $row;
@@ -79,24 +78,55 @@ function studentGrade($conn, $stud_id){
     }
     return false;
 }
-/*
-function courseInformation($conn, $course_id){
-    if (!$course_id) return false;
-    
-    $sql = "SELECT courseID, title, courseCode, depID, creditHours FROM course WHERE courseID = '$course_id'";
-    $result = mysqli_query($conn, $sql);
-    if ($result && mysqli_num_rows($result) >= 1) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['courseID'] = $row['courseID'];
-        $_SESSION['courseName'] = $row['title'];
-        $_SESSION['courseCode'] = $row['courseCode'];
-        $_SESSION['depID'] = $row['depID'];
-        $_SESSION['creditHours'] = $row['creditHours'];
-        return true;
+function GPA(){
+    $res = 0;
+    $i=0;
+    $mark;
+    $grades = $_SESSION['grades'] ?? [];
+
+    foreach($grades as $grade) {
+
+        if( $grade['Score']< 40){
+            $mark = 0;
+        }else if($grade['Score'] >= 85 && $grade['Score'] <= 100){
+                $mark = 4;
+        }else if($grade['Score'] >= 80 && $grade['Score'] < 85){
+            $mark = 3.75;
+        }else if($grade['Score'] >= 75 && $grade['Score'] < 80){
+            $mark = 3.5;
+        }else if($grade['Score'] >= 70 && $grade['Score'] < 75){
+            $mark = 3.0;
+        }else if($grade['Score'] >= 65 && $grade['Score'] < 70){
+            $mark = 2.75;
+        }else if($grade['Score'] >= 60 && $grade['Score'] < 65){
+            $mark = 2.5;
+        }else if($grade['Score'] >= 55 && $grade['Score'] < 60){
+            $mark = 2.0;
+        }else if($grade['Score'] >= 50 && $grade['Score'] < 55){
+            $mark = 1.75;
+        }else if($grade['Score'] >= 45 && $grade['Score'] < 50){
+            $mark = 1.5;
+        }else if($grade['Score'] >= 40 && $grade['Score'] < 45){
+            $mark = 1.0;
+        }else{
+            $mark = 0;
+        }
+
+        $res += ($mark * $grade['creditHours']); 
+        $i += $grade['creditHours'];
+        
     }
-    return false;
+    $_SESSION['TC'] = $i;
+    $_SESSION['GPA'] = $res/$i;
+
 }
-*/
+
+
+function fee(){
+    $_SESSION['totalBalance'] = $_SESSION['TC']*350 + 1000 + 500;
+}
+
+
 
 
 // Load all user data if logged in
@@ -111,10 +141,9 @@ if (isset($_SESSION['user_id'])) {
     
     if (isset($_SESSION['studID']) && $_SESSION['studID']) {
         studentGrade($conn, $_SESSION['studID']);
+        GPA();
+        fee();
         
-        //if (isset($_SESSION['courseID']) && $_SESSION['courseID']) {
-           // courseInformation($conn, $_SESSION['courseID']);
-        //}
     }
 }
 ?>

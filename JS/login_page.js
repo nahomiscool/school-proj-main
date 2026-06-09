@@ -10,14 +10,11 @@ p.style.bottom = "20px"
 function validateUserInfo(){
     if(username.value === "" || password.value === ""){
         p.textContent = "Please enter username and password to login.";
-        
         p.style.left = "70px";
-        alert(p.textContent);
         form.appendChild(p);
     }else{
         p.textContent = "The username or password you entered is incorrect. Please try again.";
         p.style.left = "20px";
-        alert(p.textContent);
         form.appendChild(p);
     }
 }

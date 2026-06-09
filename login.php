@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($name === '' || $pass === '') {
         $message = "Please enter username and password to login.";
     } else {
-        // IMPORTANT: In production, use prepared statements and password hashing!
-        $sql = "SELECT Userid, userName, userFname, userLname, email, role FROM User WHERE userName = '$name' AND password = '$pass'";
+        
+        $sql = "SELECT Userid FROM User WHERE userName = '$name' AND password = '$pass'";
         $result = mysqli_query($conn, $sql);
         
         if ($result && mysqli_num_rows($result) === 1) {

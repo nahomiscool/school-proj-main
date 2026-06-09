@@ -6,13 +6,15 @@
     $userFname = $_SESSION['user_fname'] ?? 'User';
     $userLname = $_SESSION['user_lname'] ?? '';
     $role = $_SESSION['user_role'] ?? 'Student';
-
+    $grades = $_SESSION['grades'] ?? [];
     // FIXED: Changed login.html to login.php
     if (!isset($_SESSION['user_id'])) {
         header('Location: login.php');
         exit;
     }
     $fullName = $userFname . ' ' . $userLname;
+    $TC = 0;    
+
 
 ?>
 <!DOCTYPE html>
@@ -59,19 +61,19 @@
             <ul>
                 <li>
                     <p>Full Name: </p>
-                    <span>Dave Jacson</span>
+                    <span><?php echo htmlspecialchars($fullName); ?>  </span>
                 </li>
                 <li>
                     <p>ID: </p>
-                    <span>06464/16</span>
+                    <span><?php echo htmlspecialchars($ID); ?></span>
                 </li>
                 <li>
                     <p>Department: </p>
-                    <span>COSC</span>
+                    <span><?php echo htmlspecialchars($_SESSION['departmentName'] ?? '-'); ?></span>
                 </li>
                 <li>
                     <p>Total Balance Due: </p>
-                    <span>$8,150</span>
+                    <span><?php echo "$",htmlspecialchars($_SESSION['totalBalance']); ?></span>
                 </li>
                 <li>
                     <p>Next pay: </p>
@@ -83,62 +85,44 @@
         <div class="overView">
             <h3>Registered Courses Overview</h3>
             <table style = "width: 100%">
-                <tr>
-                    <th >Course Title</th>
-                    <th>Course No</th>
-                    <th>Cr</th>
-                    <th>Lab hr</th>
-                </tr>
-                <tr>
-                    <td bgcolor="#e0e0e0" >Data structure</td>
-                    <td bgcolor="#e0e0e0" >COSC3061</td>
-                    <td bgcolor="#e0e0e0" >4</td>
-                    <td bgcolor="#e0e0e0" >2</td>
-                </tr>
-                <tr>
-                    <td>Database Managment</td>
-                    <td>COSC3071</td>
-                    <td>3</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td bgcolor="#e0e0e0" >Computer Graphics</td>
-                    <td bgcolor="#e0e0e0" >COSC3062</td>
-                    <td bgcolor="#e0e0e0" >3</td>
-                    <td bgcolor="#e0e0e0" >2</td>
-                </tr>
-                <tr>
-                    <td>Internet Programing I</td>
-                    <td>COSC3081</td>
-                    <td>3</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td bgcolor="#e0e0e0" >Computer Networking</td>
-                    <td bgcolor="#e0e0e0" >COSC3031</td>
-                    <td bgcolor="#e0e0e0" >3</td>
-                    <td bgcolor="#e0e0e0" >2</td>
-                </tr>
-                <tr>
-                    <td>History of Ethiopia</td>
-                    <td>COSC1012</td>
-                    <td>3</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <th colspan="1" style="text-align: right;border-top: 4px solid #0022b8" >Total:</th>
-                    <th colspan="1" style="border-top: 4px solid #0022b8;" ></th>
-                    <th colspan="1" style="text-align: left;border-top: 4px solid #0022b8;color: rgb(146, 7, 3);" >19</th>
-                    <th colspan="1" style="text-align: left;border-top: 4px solid #0022b8; color: rgb(146, 7, 3);">10</th>
-                </tr>
+                <?php
+                   echo "<tr>";
+                        echo "<th>Course Title</th>";
+                        echo "<th>Course No</th>";
+                        echo "<th>Cr</th>";
+                        echo "<th>Lab hr</th>";
+                    echo "</tr>";
+
+                    foreach ($grades as $grades) {
+                        $TC +=  $grades['creditHours'];
+                        $_SESSION['$TC'] = $TC;
+                        echo "<tr>";
+                            echo "<td bgcolor=\"#e0e0e0\" >", htmlspecialchars($grades['title'] ?? 'N/A'),"</td>";
+                            echo "<td bgcolor=\"#e0e0e0\" >", htmlspecialchars($grades['courseID'] ?? 'N/A'),"</td>";
+                            echo "<td bgcolor=\"#e0e0e0\" >", htmlspecialchars($grades['creditHours'] ?? 'N/A'),"</td>";
+                            echo "<td bgcolor=\"#e0e0e0\" >2</td>";
+                        echo "</tr>";
+                    }
+
+                   
+                    echo "<tr>";
+                        echo "<th colspan=\"1\" style=\"text-align: right;border-top: 4px solid #0022b8\" >Total:</th>";
+                        echo "<th colspan=\"1\" style=\"border-top: 4px solid #0022b8;\" ></th>";
+                        echo "<th colspan=\"1\" style=\"text-align: left;border-top: 4px solid #0022b8;color: rgb(146, 7, 3);\" >", htmlspecialchars($TC), "</th>";
+                        echo "<th colspan=\"1\" style=\"text-align: left;border-top: 4px solid #0022b8; color: rgb(146, 7, 3);\">10</th>";
+                    echo "</tr>";
+                ?>
+
+
+
             </table>
         </div>
         <div class="finance-breakdown">
             <h3>Fee Breakdown</h3>
             <ul>
                 <li>
-                    <span>Tuition (19 Cr x $350)</span>
-                    <strong>$6,650</strong>
+                    <span>Tuition (<?php echo htmlspecialchars($TC); ?> Cr x $350)</span>
+                    <strong><?php echo "$",htmlspecialchars($TC) * 350; ?></strong>
                 </li>
                 <li>
                     <span>Lab Fees (10 Hrs x $100)</span>
@@ -150,13 +134,13 @@
                 </li>
                 <li class="total-row">
                     <span>Total Balance</span>
-                    <strong>$8,150</strong>
+                    <strong><?php echo "$",htmlspecialchars($_SESSION['totalBalance']);  ?></strong>
                 </li>
             </ul>
         </div>
         <div class="pay">
             <p class="meta-data" >TOTAL BALANCE DUE</p>
-            <h1>$8,150</h1>
+            <h1><?php echo "$",htmlspecialchars($_SESSION['totalBalance']); ?></h1>
             <ul>
                 <li>
                     <P>Next Payment Due</P>

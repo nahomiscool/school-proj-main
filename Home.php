@@ -7,7 +7,6 @@
     
     $ID = $_SESSION['user_id'] ?? 'Not available';
     $Name = $_SESSION['username'] ?? 'Guest';
-    $Email = $_SESSION['user_email'] ?? 'Not available';
     $userFname = $_SESSION['user_fname'] ?? 'User';
     $userLname = $_SESSION['user_lname'] ?? '';
     $role = $_SESSION['user_role'] ?? 'Student';
@@ -16,7 +15,7 @@
     //---------------------------
     $year = $_SESSION['year'];
     $semester = $_SESSION['semester'];
-    
+    $grades = $_SESSION['grades'] ?? [];
 
     // FIXED: Changed login.html to login.php
     if (!isset($_SESSION['user_id'])) {
@@ -56,10 +55,11 @@
                 <div>
                     <p style=" font-size:15px ; font-weight: bold;text-align: right;"> <?php echo htmlspecialchars($fullName); ?> </p> 
                     <p style="font-size: 12px; text-align: right; color: blue; font-weight: bold;" >ID: <?php echo htmlspecialchars($ID); ?> </p>
+                    <p style="text-align: right; font-size: 13px;" > <?php echo htmlspecialchars($role); ?> </p>
                 </div>
                 <img class="profile-img" src="./IMG/man.png">
                 <div class="dropdown" >
-                    <!-- FIXED: Changed to logout.php -->
+                   
                     <a href="logout.php"><button>Signout</button></a>
                 </div>
             </div>
@@ -92,15 +92,15 @@
                     </div>
                     <div>
                         <p>⭐ CGPA</p>
-                        <h3>3.4</h3>
+                        <h3><?php echo htmlspecialchars($_SESSION['GPA'] ?? '-'); ?></h3>
                     </div>
                     <div>
                         <p>📝 CREDITS</p>
-                        <h3>19</h3>
+                        <h3><?php echo htmlspecialchars($_SESSION['TC'] ?? '-'); ?></h3>
                     </div>
                 </div>
                 <div class="buttons-in-grid" >
-                    <a href="./Grade.html" ><button class="btn1">View Academic Record</button></a>
+                    <a href="./Grade.php" ><button class="btn1">View Academic Record</button></a>
                     <button class="btn2">Download ID Card</button>
                 </div>  
             </div>
@@ -111,9 +111,9 @@
                     <span class="finance-title">Finance</span>
                 </div>
                 <p class="finance-label">Balance Due</p>
-                <p class="finance-amount">$8,150</p>
+                <p class="finance-amount"><?php echo "$",htmlspecialchars($_SESSION['totalBalance']); ?></p>
                 <p class="finance-date">Next due: <span>2025-02-12</span></p>
-                <a href="./Finance.html" ><button class="finance-btn">Pay Fees</button></a>
+                <a href="./Finance.php" ><button class="finance-btn">Pay Fees</button></a>
             </div>
         </div>
 
@@ -170,7 +170,7 @@
                         <p>Course registration deadline extended</p>
                         <span>Yesterday</span>
                     </div>
-                    <!-- FIXED: Added missing closing div tag -->
+                    
                 </div>
             </div>
         </div>

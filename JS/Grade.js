@@ -1,68 +1,12 @@
-import { Course } from "./data.js";
 let table = document.getElementById('table-cont-js'); 
-let choise = document.getElementById('course-select');
-let metadata = document.querySelector('.table_metadata');
+let choise = document.getElementById('course_select');
+let grade = document.getElementById('selectedCourseData');
 let bar = document.querySelector('.grade_per');
-choise.addEventListener('change', function() {
-    const selectedCourse = Course.find(c => c.id === choise.value);
 
-    if (!selectedCourse){
-        return;
-    } 
-
-    let total = 0;
-    selectedCourse.results.forEach(score => {
-        total += score;
-    });
-
-    metadata.innerHTML = `
-                <h4>Course Title</br><span>${selectedCourse.title}</span> </h4>
-                <h4>Course Code</br><span>${selectedCourse.courseCode}</span> </h4>
-                <h4>Grade</br><span>${selectedCourse.Grade}</span> </h4>
-    `;
-    table.innerHTML = `
-        <tr>
-            <th>Assessment Name</th>
-            <th>Assessment Type</th>
-            <th>Maximum Mark</th>
-            <th>Result</th>
-        </tr>
-        <tr>
-            <td bgcolor="#e0e0e0">Mid Exam</td>
-            <td bgcolor="#e0e0e0">Continuous</td>
-            <td bgcolor="#e0e0e0">20</td>
-            <td bgcolor="#e0e0e0">${selectedCourse.results[0]}</td>
-        </tr>
-        <tr>
-            <td>Assessment</td>
-            <td>Continuous</td>
-            <td>10</td>
-            <td>${selectedCourse.results[1]}</td>
-        </tr>
-        <tr>
-            <td bgcolor="#e0e0e0">Laboratory Assignment</td>
-            <td bgcolor="#e0e0e0">Continuous</td>
-            <td bgcolor="#e0e0e0">10</td>
-            <td bgcolor="#e0e0e0">${selectedCourse.results[2]}</td>
-        </tr>
-        <tr>
-            <td>Project Assignment</td>
-            <td>Continuous</td>
-            <td>10</td>
-            <td>${selectedCourse.results[3]}</td>
-        </tr>
-        <tr>
-            <td bgcolor="#e0e0e0">Final Exam</td>
-            <td bgcolor="#e0e0e0">Final</td>
-            <td bgcolor="#e0e0e0">50</td>
-            <td bgcolor="#e0e0e0">${selectedCourse.results[4]}</td>
-        </tr>
-        <tr class="total-row">
-            <th colspan="2" style="text-align: right;">Total</th>
-            <th style="text-align: left;">100</th>
-            <th style="text-align: left;">${total}/100</th>
-        </tr>
-    `;
+function updateBarColor() {
+    let total = parseInt(grade.value);
+    
+    if(isNaN(total)) return; // Exit if not a number
     
     if(total < 50){
         console.log('Fail');
@@ -82,6 +26,16 @@ choise.addEventListener('change', function() {
     }else if(total >=90){
         console.log('Distinction');
         bar.style.background = "linear-gradient(45deg, #3902ff 95%, #ffffff 5%)";
-        
-    }   
-});
+    }
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', updateBarColor);
+
+// Also run when select changes (but the page will reload anyway due to form submit)
+if(choise) {
+    choise.addEventListener('change', function() {
+        // This will run but page will reload immediately
+        updateBarColor();
+    });
+}

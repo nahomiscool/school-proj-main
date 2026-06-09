@@ -12,25 +12,20 @@
     //-----------------------------
     $user_depr = $_SESSION['departmentName'] ?? 'Not available';
     //-----------------------------
-  
-    
+    $year = $_SESSION['year'];
+    $semester = $_SESSION['semester'];
+    $grades = $_SESSION['grades'] ?? [];
+    $count = 0;
 
 
-
-
-
-
-
-
-
-
-    // FIXED: Changed login.html to login.php
     if (!isset($_SESSION['user_id'])){
         header('Location: login.php');
         exit;
     }
     $fullName = $userFname . ' ' . $userLname;
-    
+
+    $selectedIndex = isset($_POST['course_select']) ? (int)$_POST['course_select'] : 0;
+    $selectedCourse = $grades[$selectedIndex] ?? [];
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +39,7 @@
     <link rel="stylesheet" href="./css/Finance.css">
 </head>
 <body>
-         <nav>
+    <nav>
         <div class="innerNav">
             <div class="logo-nav-name">
                 <img class="logo" src="./IMG/photo_2025-09-28_09-52-49-removebg-preview.png">
@@ -77,41 +72,56 @@
             <ul>
                 <li>
                     <p>CGPA:</p>
-                    <span>3.22</span>
+                    <span><?php echo htmlspecialchars($_SESSION['GPA'] ?? '-')?></span>
                 </li>
                 <li>
                     <p>Semister GPA:</p>
-                    <span>3.3</span>
+                    <span> <?php echo htmlspecialchars($_SESSION['GPA'] ?? '-')?> </span>
                 </li>
                 <li>
                     <p>Creadit Earned:</p>
-                    <span>18</span>
+                    <span><?php echo htmlspecialchars($_SESSION['creditHours']?? '-')?></span>
                 </li>
                 <li>
                     <p>Year:</p>
-                    <span>3</span>
+                    <span> <?php echo htmlspecialchars($year); ?>  </span>
                 </li>
                 <li>
                     <p>Semister:</p>
-                    <span>2nd</span>
+                    <span> <?php echo htmlspecialchars($semester); if ($semester == 2) { echo "nd"; }elseif($semester == 3) { echo "rd"; } else { echo "st"; } ?> </span>
                 </li>
             </ul>
         </div>
         
         <div class="overView1">
-            <select id="course-select">
-            <option  value="0">Select Course</option> 
-            <option   value="1">Database Managment</option>
-            <option   value="2">Data Structure</option>
-            <option  value="3">Conputer Graphics</option>
-            <option value="4">Computer Networking</option>
-            <option value="5">History of Ethiopia</option>
-            <option value="6">Internet Programming</option>
-            </select>
+            <form method="POST">
+                <select name="course_select" id = "course_select" onchange="this.form.submit()">
+                    <?php 
+                    $index = 0;
+                    foreach($grades as $grade): 
+                        $selected = ($selectedIndex == $index) ? "selected" : "";
+                    ?>
+                        <option value="<?php echo $index; ?>" <?php echo $selected; ?>>
+                            <?php echo htmlspecialchars($grade['title']); ?>
+                        </option>
+                    <?php 
+                        $index++;
+                    endforeach; 
+                    $selectedCourse = $grades[$selectedIndex] ?? [];
+                    ?>
+                </select>
+            </form>
+            
+            <input type="hidden" id="selectedCourseData" value="<?php echo htmlspecialchars($selectedCourse['Score'] ?? '-'); ?>">
+            </input> 
             <section class="table_metadata">
-                <h4>Course Title</br><span>-</span> </h4>
-                <h4>Course Code</br><span>-</span> </h4>
-                <h4>Grade</br><span>-</span> </h4>
+                <?php
+                    echo "<h4>Course Title<br/><span>" . htmlspecialchars($selectedCourse['title'] ?? '-') . "</span></h4>";
+                    echo "<h4>Course Code<br/><span>" . htmlspecialchars($selectedCourse['courseID'] ?? '-') . "</span></h4>";
+                    echo "<h4>Grade<br/><span>" . htmlspecialchars($selectedCourse['Score'] ?? '-') . "</span></h4>";
+                    echo "<h4>Credits<br/><span>" . htmlspecialchars($selectedCourse['creditHours'] ?? '-') . "</span></h4>";
+                ?>
+                
             </section>
             
             <table  id="table-cont-js" style = "width: 100%">
@@ -151,10 +161,10 @@
                     <td bgcolor="#e0e0e0">50</td>
                     <td bgcolor="#e0e0e0">-</td>
                 </tr>
-                <tr class="total-row" >
+                <tr class="total-row">
                     <th colspan="2" style="color:rgb(100, 12, 12);" style="text-align: right;" >Total:</th>
                     <th style="text-align: left;color:rgb(100, 12, 12)" >100</th>
-                    <th style="text-align: left;color:rgb(100, 12, 12);" >-/100</th>
+                    <th style="text-align: left;color:rgb(100, 12, 12);" > <?php echo htmlspecialchars($selectedCourse['Score'] ?? '-'); ?> /100</th>
                 </tr>
             </table>
             <div class="grade_per"></div>
